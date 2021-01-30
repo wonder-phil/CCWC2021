@@ -1,0 +1,29 @@
+
+
+cd workshop
+
+
+qemu-system-arm -M versatilepb \
+                     -cpu arm1176 \
+                     -m 256 -hda "./2020-12.qcow2" \
+                     -net nic -net user,hostfwd=tcp::5022-:22 \
+                     -dtb "./versatile-pb.dtb" \
+                     -kernel "./qemukernel" \
+                     -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -no-reboot
+
+
+
+qemu-system-arm -M versatilepb \
+                     -cpu arm1176 \
+                     -m 256 -hda "./2020-12.qcow2" \
+                     -net nic -net user,hostfwd=tcp::5023-:22 \
+                     -dtb "./versatile-pb.dtb" \
+                     -kernel "./qemukernel" \
+                     -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -no-reboot
+
+                         
+
+
+git clone https://github.com/wonder-phil/CCWC2021Blocks.git
+
+git clone https://github.com/wonder-phil/CCWC2021Mining.git 
